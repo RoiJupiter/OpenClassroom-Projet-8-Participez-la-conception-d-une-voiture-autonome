@@ -39,8 +39,11 @@
         </div>
         <!-- Conteneur pour la prédiction -->
         <div class="element">
+            <div class="element">
             <h2>Prediction</h2>
-            <!-- Vous pouvez ajouter ici le contenu de votre élément de prédiction -->
+            <!-- Afficher l'image générée à partir du masque segmenté -->
+            <img src="{{ url_for('static', filename=generated_mask_path) }}" alt="Generated Masks" class="image">
+        </div>
         </div>
     </div>
 </body>
