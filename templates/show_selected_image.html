@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prédiction de l'Image</title>
+    <style>
+        /* Style pour le conteneur des images et des éléments */
+        .image-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px; /* Espacement entre les éléments */
+            margin-top: 20px;
+        }
+        /* Style pour les images */
+        .image {
+            max-width: 300px;
+            max-height: 300px;
+            cursor: pointer;
+        }
+        /* Style pour les éléments */
+        .element {
+            margin: 100px; /* Espacement autour de chaque élément */
+        }
+    </style>
+</head>
+<body>
+    <h1>Image Sélectionné</h1>
+    <div class="image-container">
+        <!-- Conteneur pour l'image -->
+        <div class="element">
+            <h2>Image</h2>
+            <!-- Affiche l'image sélectionnée en utilisant l'URL "static" pour le chemin -->
+            <img src="{{ url_for('static', filename=selected_image_path) }}" alt="Selected Image" class="image">
+        </div>
+        <!-- Conteneur pour le masque -->
+        <div class="element">
+            <h2>Mask</h2>
+            <!-- Affiche le masque correspondant en utilisant l'URL "static" pour le chemin -->
+            <img src="{{ url_for('static', filename=mask_image_path) }}" alt="Mask Image" class="image">
+        </div>
+        <!-- Conteneur pour la prédiction -->
+        <div class="element">
+            <h2>Prediction</h2>
+            <!-- Vous pouvez ajouter ici le contenu de votre élément de prédiction -->
+        </div>
+    </div>
+</body>
+</html>
