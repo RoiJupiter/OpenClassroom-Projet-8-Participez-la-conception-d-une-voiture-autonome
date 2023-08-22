@@ -1,1 +1,1 @@
-model_fcn8 filter=lfs diff=lfs merge=lfs -text
+my_large_folder/* filter=lfs diff=lfs merge=lfs -text
