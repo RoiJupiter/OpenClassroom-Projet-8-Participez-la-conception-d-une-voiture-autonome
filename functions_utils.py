@@ -6,7 +6,7 @@ import numpy as np
 
 # Fonction pour effectuer les prédictions
 def predict(image_path):
-    model = keras.models.load_model('model_fcn8', compile = False)
+    model = keras.models.load_model('model_unet', compile = False)
     model.compile(loss='categorical_crossentropy',
               metrics=['accuracy'])
     
