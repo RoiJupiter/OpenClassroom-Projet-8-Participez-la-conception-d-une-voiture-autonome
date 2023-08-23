@@ -32,7 +32,13 @@ def images(filename):
     images_folder = os.path.join(os.getcwd(), 'static/images')
     return send_from_directory(images_folder, filename)
 
-# Route pour servir les images depuis le dossier "static/images"
+# Route pour servir les masks depuis le dossier "static/masks"
+@app.route('/static/masks/<path:filename>')
+def masks(filename):
+    masks_folder = os.path.join(os.getcwd(), 'static/masks')
+    return send_from_directory(masks_folder, filename)
+
+# Route pour servir le generated_mask depuis le dossier "static/generated_mask"
 @app.route('/static/generated_mask/<path:filename>')
 def generated_mask(filename):
     generated_mask_folder = os.path.join(os.getcwd(), 'static/generated_mask')
@@ -43,9 +49,10 @@ def generated_mask(filename):
 @app.route('/show_selected_image/<filename>')
 def show_selected_image(filename):
     # Chemin relatif au dossier 'static/images'
-    selected_image_path = 'images' + '/' + filename
+    selected_image_path = 'images/' + filename
     # Chemin relatif au dossier 'static/masks'
-    mask_image_path = os.path.join('static', 'masks', filename.replace("\\", "/"))
+    mask_filename = filename.replace('_leftImg8bit.png', '_gtFine_labelIds.png')
+    mask_image_path = 'masks/' + mask_filename
 
     # Effectuer des prédictions sur l'image sélectionnée
     prediction = predict('static/' + selected_image_path)
