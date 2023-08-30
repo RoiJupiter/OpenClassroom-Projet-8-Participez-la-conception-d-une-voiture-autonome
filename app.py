@@ -21,8 +21,11 @@ def home():
 def process_image():
     image_list = []
 
+    print(os.getcwd())
+
     # Chemin vers le dossier "static/images"
     images_folder = os.path.join(os.getcwd(), 'static/images')
+    print(images_folder)
 
     # Vérifie si le dossier "static/images" existe et s'il est un répertoire
     if os.path.exists(images_folder) and os.path.isdir(images_folder):
