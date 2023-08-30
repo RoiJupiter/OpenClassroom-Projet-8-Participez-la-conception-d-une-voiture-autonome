@@ -4,6 +4,10 @@ import os
 from functions_utils import predict
 app = Flask(__name__)
 
+current_folder = "/home/Jupiter/OpenClassroom-Projet-8-Participez-la-conception-d-une-voiture-autonome/templates"
+
+app = Flask('Prediction des sentiments sur twitter',template_folder = current_folder)
+
 # Route pour la page d'accueil
 @app.route('/')
 def home():
