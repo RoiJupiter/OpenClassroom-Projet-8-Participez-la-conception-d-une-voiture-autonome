@@ -44,9 +44,13 @@ cats = {
 
 # Fonction pour effectuer les prédictions
 def predict(image_path):
-    model = keras.models.load_model(model_path, compile = False)
-    model.compile(loss='categorical_crossentropy',
+
+    try:
+        model = keras.models.load_model(model_path, compile = False)
+        model.compile(loss='categorical_crossentropy',
               metrics=['accuracy'])
+    except OSError as e:
+        print("Error while loading the model:", e)
     
     img = tf.keras.preprocessing.image.load_img(image_path, target_size=(128,256))
     # Normaliser l'image d'entrée
