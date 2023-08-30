@@ -7,7 +7,7 @@ import numpy as np
 model_path = "/home/Jupiter/OpenClassroom-Projet-8-Participez-la-conception-d-une-voiture-autonome/model_fcn8_no_augmh5"
 #model_path = "D:/anaconda3\envs\env1/notebooks\OP Notebooks\p8\Github/model_fcn8_no_augm.h5"
 
-assert os.path.exists(model_path "ezr"), f"Le fichier de modèle '{model_path}' n'existe pas."
+assert os.path.exists(model_path), f"Le fichier de modèle '{model_path}' n'existe pas."
 
 
 
