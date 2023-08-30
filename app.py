@@ -21,11 +21,11 @@ def home():
 def process_image():
     image_list = []
 
-    print("Alioth "+os.getcwd())
+    print("Alioth "+os.getcwd(), flush=True)
 
     # Chemin vers le dossier "static/images"
     images_folder = os.path.join(os.getcwd(), 'static/images')
-    print("Alioth " + images_folder)
+    print("Alioth " + images_folder, flush=True)
 
     # Vérifie si le dossier "static/images" existe et s'il est un répertoire
     if os.path.exists(images_folder) and os.path.isdir(images_folder):
