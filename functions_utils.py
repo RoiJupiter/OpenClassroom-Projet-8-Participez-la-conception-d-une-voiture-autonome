@@ -45,12 +45,11 @@ cats = {
 # Fonction pour effectuer les prédictions
 def predict(image_path):
 
-    try:
-        model = keras.models.load_model(model_path, compile = False)
-        model.compile(loss='categorical_crossentropy',
-              metrics=['accuracy'])
-    except OSError as e:
-        print("Error while loading the model:", e)
+
+    model = keras.models.load_model(model_path, compile = False)
+    model.compile(loss='categorical_crossentropy',
+            metrics=['accuracy'])
+
     
     img = tf.keras.preprocessing.image.load_img(image_path, target_size=(128,256))
     # Normaliser l'image d'entrée
@@ -58,14 +57,13 @@ def predict(image_path):
     
     img_norm = img_norm.reshape(1, 128, 256, 3)
     
-    try:
-        # Prédire le masque segmenté à l'aide du modèle
-        img_pred = model.predict(img_norm)[0]
 
-        return generate_img_from_mask(img_pred, cats)
+    # Prédire le masque segmenté à l'aide du modèle
+    img_pred = model.predict(img_norm)[0]
 
-    except Exception as e:
-        print("Error img_pred:", e)
+    return generate_img_from_mask(img_pred, cats)
+
+
 
     
 

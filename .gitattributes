@@ -1,0 +1,2 @@
+model_fcn8_no_augmh5 filter=lfs diff=lfs merge=lfs -text
+model_fcn8_no_augm.h5 filter=lfs diff=lfs merge=lfs -text
