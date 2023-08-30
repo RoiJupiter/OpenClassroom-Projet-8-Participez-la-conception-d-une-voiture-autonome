@@ -62,10 +62,12 @@ def predict(image_path):
         # Prédire le masque segmenté à l'aide du modèle
         img_pred = model.predict(img_norm)[0]
 
+        return generate_img_from_mask(img_pred, cats)
+
     except Exception as e:
         print("Error img_pred:", e)
 
-    return generate_img_from_mask(img_pred, cats)
+    
 
 # Fonction pour générer une image à partir d'un masque segmenté
 def generate_img_from_mask(mask, cats):
