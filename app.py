@@ -27,12 +27,9 @@ def home():
 def process_image():
     image_list = []
 
-    print("Alioth "+path, flush=True, file=sys.stderr)
-
     # Chemin vers le dossier "static/images"
     images_folder = os.path.join(path, 'static/images')
-    print("Alioth " + images_folder, flush=True)
-
+   
     # Vérifie si le dossier "static/images" existe et s'il est un répertoire
     if os.path.exists(images_folder) and os.path.isdir(images_folder):
         # Liste les fichiers du dossier "static/images"
@@ -74,7 +71,7 @@ def show_selected_image(filename):
     prediction = predict(current_path + 'static/' + selected_image_path)
 
     # Chemin de sauvegarde pour l'image de masque générée
-    generated_mask_path = os.path.join('static/generated_mask/', 'generated_mask.png')
+    generated_mask_path = os.path.join(generated_mask_path + 'static/generated_mask/', 'generated_mask.png')
     
     # Sauvegarder l'image de masque générée
     prediction.save(current_path + generated_mask_path)
