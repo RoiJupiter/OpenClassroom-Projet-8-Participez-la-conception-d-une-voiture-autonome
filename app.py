@@ -11,6 +11,9 @@ template_folder = "/home/Jupiter/OpenClassroom-Projet-8-Participez-la-conception
 
 #path = os.getcwd()
 path = '/home/Jupiter/OpenClassroom-Projet-8-Participez-la-conception-d-une-voiture-autonome/'
+current_path = '/home/Jupiter/OpenClassroom-Projet-8-Participez-la-conception-d-une-voiture-autonome/'
+#current_path =''
+
 #app = Flask(__name__)
 app = Flask('Prediction des sentiments sur twitter',template_folder = template_folder)
 
@@ -68,14 +71,14 @@ def show_selected_image(filename):
     mask_image_path = 'masks/' + mask_filename
 
     # Effectuer des prédictions sur l'image sélectionnée
-    prediction = predict('static/' + selected_image_path)
+    prediction = predict(current_path + 'static/' + selected_image_path)
 
     # Chemin de sauvegarde pour l'image de masque générée
     generated_mask_path = os.path.join('static/generated_mask/', 'generated_mask.png')
     
     # Sauvegarder l'image de masque générée
-    prediction.save(generated_mask_path)
-    generated_mask_path = os.path.join('generated_mask/', 'generated_mask.png')
+    prediction.save(current_path + generated_mask_path)
+    generated_mask_path = os.path.join(current_path + 'generated_mask/', 'generated_mask.png')
 
     # Rend la page "show_selected_image.html" en passant 
     # #les chemins des images sélectionnée et du masque
