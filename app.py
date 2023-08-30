@@ -4,6 +4,8 @@ import sys
 
 from functions_utils import predict
 
+print("Alioth "+os.getcwd(), flush=True, file=sys.stderr)
+
 template_folder = "/home/Jupiter/OpenClassroom-Projet-8-Participez-la-conception-d-une-voiture-autonome/templates"
 #template_folder = "D:/anaconda3\envs\env1/notebooks\OP Notebooks\p8\Github/templates"
 
