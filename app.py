@@ -10,13 +10,13 @@ print("Alioth "+os.getcwd(), flush=True, file=sys.stderr)
 #variable local
 #template_folder = "D:/anaconda3\envs\env1/notebooks\OP Notebooks\p8\Github/templates"
 #path = os.getcwd()
-current_path =''
+#current_path =''
 
 
 #variable pythonanywhere
 template_folder = "/home/Jupiter/OpenClassroom-Projet-8-Participez-la-conception-d-une-voiture-autonome/templates"
 path = '/home/Jupiter/OpenClassroom-Projet-8-Participez-la-conception-d-une-voiture-autonome/'
-#current_path = '/home/Jupiter/OpenClassroom-Projet-8-Participez-la-conception-d-une-voiture-autonome/'
+current_path = '/home/Jupiter/OpenClassroom-Projet-8-Participez-la-conception-d-une-voiture-autonome/'
 
 
 #app = Flask(__name__)
@@ -72,8 +72,10 @@ def show_selected_image(filename):
     mask_filename = filename.replace('_leftImg8bit.png', '_gtFine_labelIds.png')
     mask_image_path = 'masks/' + mask_filename
 
+    image_to_predict = current_path + 'static/' + selected_image_path
+    print("1706 " + image_to_predict)
     # Effectuer des prédictions sur l'image sélectionnée
-    prediction = predict(current_path + 'static/' + selected_image_path)
+    prediction = predict(image_to_predict)
 
     # Chemin de sauvegarde pour l'image de masque générée
     generated_mask_path = os.path.join(generated_mask_path + 'static/generated_mask/', 'generated_mask.png')
