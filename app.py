@@ -78,7 +78,7 @@ def show_selected_image(filename):
     prediction = predict(image_to_predict)
 
     # Chemin de sauvegarde pour l'image de masque générée
-    generated_mask_path = os.path.join(generated_mask_path + 'static/generated_mask/', 'generated_mask.png')
+    generated_mask_path = os.path.join('static/generated_mask/', 'generated_mask.png')
     
     # Sauvegarder l'image de masque générée
     prediction.save(current_path + generated_mask_path)
