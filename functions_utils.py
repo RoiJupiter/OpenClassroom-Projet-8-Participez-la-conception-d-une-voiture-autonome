@@ -4,6 +4,8 @@ import tensorflow as tf
 from matplotlib import colors
 import numpy as np
 
+import os
+
 model_path = "/home/Jupiter/OpenClassroom-Projet-8-Participez-la-conception-d-une-voiture-autonome/model_fcn8_no_augmh5"
 #model_path = "D:/anaconda3\envs\env1/notebooks\OP Notebooks\p8\Github/model_fcn8_no_augm.h5"
 
