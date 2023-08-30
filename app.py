@@ -9,8 +9,8 @@ print("Alioth "+os.getcwd(), flush=True, file=sys.stderr)
 template_folder = "/home/Jupiter/OpenClassroom-Projet-8-Participez-la-conception-d-une-voiture-autonome/templates"
 #template_folder = "D:/anaconda3\envs\env1/notebooks\OP Notebooks\p8\Github/templates"
 
-#current_folder = "D:/anaconda3\envs\env1/notebooks\OP Notebooks\p8\Github/"
-
+#path = os.getcwd()
+path = '/home/Jupiter/OpenClassroom-Projet-8-Participez-la-conception-d-une-voiture-autonome/'
 #app = Flask(__name__)
 app = Flask('Prediction des sentiments sur twitter',template_folder = template_folder)
 
@@ -24,10 +24,10 @@ def home():
 def process_image():
     image_list = []
 
-    print("Alioth "+os.getcwd(), flush=True, file=sys.stderr)
+    print("Alioth "+path, flush=True, file=sys.stderr)
 
     # Chemin vers le dossier "static/images"
-    images_folder = os.path.join(os.getcwd(), 'static/images')
+    images_folder = os.path.join(path, 'static/images')
     print("Alioth " + images_folder, flush=True)
 
     # Vérifie si le dossier "static/images" existe et s'il est un répertoire
@@ -42,19 +42,19 @@ def process_image():
 # Route pour servir les images depuis le dossier "static/images"
 @app.route('/static/images/<path:filename>')
 def images(filename):
-    images_folder = os.path.join(os.getcwd(), 'static/images')
+    images_folder = os.path.join(path, 'static/images')
     return send_from_directory(images_folder, filename)
 
 # Route pour servir les masks depuis le dossier "static/masks"
 @app.route('/static/masks/<path:filename>')
 def masks(filename):
-    masks_folder = os.path.join(os.getcwd(), 'static/masks')
+    masks_folder = os.path.join(path, 'static/masks')
     return send_from_directory(masks_folder, filename)
 
 # Route pour servir le generated_mask depuis le dossier "static/generated_mask"
 @app.route('/static/generated_mask/<path:filename>')
 def generated_mask(filename):
-    generated_mask_folder = os.path.join(os.getcwd(), 'static/generated_mask')
+    generated_mask_folder = os.path.join(path, 'static/generated_mask')
     return send_from_directory(generated_mask_folder, filename)
 
 
