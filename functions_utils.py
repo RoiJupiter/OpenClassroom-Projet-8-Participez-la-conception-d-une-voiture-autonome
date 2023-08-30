@@ -4,9 +4,38 @@ import tensorflow as tf
 from matplotlib import colors
 import numpy as np
 
+# Fonction pour normaliser une image d'entrée dans la plage [-1, 1]
+def normalize_input_img(img):
+    '''
+    Args:
+    img (PIL.Image): L'image PIL à normaliser
+    
+    Returns:
+    numpy.ndarray: Image normalisée sous forme d'un tableau 3D numpy
+    '''
+    # Convertir l'image PIL en tableau numpy
+    img = tf.keras.preprocessing.image.img_to_array(img, dtype=np.int32)
+    
+    # Normaliser l'intensité des pixels dans la plage [-1, 1]
+    img = img / 127.5
+    img -= 1
+    
+    return img
+
+cats = {
+    'void': [0, 1, 2, 3, 4, 5, 6],
+    'flat': [7, 8, 9, 10],
+    'construction': [11, 12, 13, 14, 15, 16],
+    'object': [17, 18, 19, 20],
+    'nature': [21, 22],
+    'sky': [23],
+    'human': [24, 25],
+    'vehicle': [26, 27, 28, 29, 30, 31, 32, 33, -1]
+}
+
 # Fonction pour effectuer les prédictions
 def predict(image_path):
-    model = keras.models.load_model('model_unet', compile = False)
+    model = keras.models.load_model('model_fcn8_no_augm.h5', compile = False)
     model.compile(loss='categorical_crossentropy',
               metrics=['accuracy'])
     
@@ -19,17 +48,6 @@ def predict(image_path):
 
     return generate_img_from_mask(img_pred, cats)
 
-cats = {
-    'void': [0, 1, 2, 3, 4, 5, 6],
-    'flat': [7, 8, 9, 10],
-    'construction': [11, 12, 13, 14, 15, 16],
-    'object': [17, 18, 19, 20],
-    'nature': [21, 22],
-    'sky': [23],
-    'human': [24, 25],
-    'vehicle': [26, 27, 28, 29, 30, 31, 32, 33, -1]
-}
-    
 # Fonction pour générer une image à partir d'un masque segmenté
 def generate_img_from_mask(mask, cats):
     '''
@@ -54,21 +72,3 @@ def generate_img_from_mask(mask, cats):
 
     # Convertir le tableau numpy en image PIL
     return tf.keras.preprocessing.image.array_to_img(img_seg)
-
-# Fonction pour normaliser une image d'entrée dans la plage [-1, 1]
-def normalize_input_img(img):
-    '''
-    Args:
-    img (PIL.Image): L'image PIL à normaliser
-    
-    Returns:
-    numpy.ndarray: Image normalisée sous forme d'un tableau 3D numpy
-    '''
-    # Convertir l'image PIL en tableau numpy
-    img = tf.keras.preprocessing.image.img_to_array(img, dtype=np.int32)
-    
-    # Normaliser l'intensité des pixels dans la plage [-1, 1]
-    img = img / 127.5
-    img -= 1
-    
-    return img
