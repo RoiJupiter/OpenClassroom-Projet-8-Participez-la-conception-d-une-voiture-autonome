@@ -56,8 +56,14 @@ def predict(image_path):
     # Normaliser l'image d'entrée
     img_norm = np.array(normalize_input_img(img))  
     
-    # Prédire le masque segmenté à l'aide du modèle
-    img_pred = model.predict(img_norm.reshape(1, 128, 256, 3))[0]
+    img_norm = img_norm.reshape(1, 128, 256, 3)
+    
+    try:
+        # Prédire le masque segmenté à l'aide du modèle
+        img_pred = model.predict(img_norm)[0]
+
+    except Exception as e:
+        print("Error img_pred:", e)
 
     return generate_img_from_mask(img_pred, cats)
 
