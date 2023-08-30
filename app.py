@@ -6,13 +6,18 @@ from functions_utils import predict
 
 print("Alioth "+os.getcwd(), flush=True, file=sys.stderr)
 
-template_folder = "/home/Jupiter/OpenClassroom-Projet-8-Participez-la-conception-d-une-voiture-autonome/templates"
-#template_folder = "D:/anaconda3\envs\env1/notebooks\OP Notebooks\p8\Github/templates"
 
+#variable local
+#template_folder = "D:/anaconda3\envs\env1/notebooks\OP Notebooks\p8\Github/templates"
 #path = os.getcwd()
+current_path =''
+
+
+#variable pythonanywhere
+template_folder = "/home/Jupiter/OpenClassroom-Projet-8-Participez-la-conception-d-une-voiture-autonome/templates"
 path = '/home/Jupiter/OpenClassroom-Projet-8-Participez-la-conception-d-une-voiture-autonome/'
-current_path = '/home/Jupiter/OpenClassroom-Projet-8-Participez-la-conception-d-une-voiture-autonome/'
-#current_path =''
+#current_path = '/home/Jupiter/OpenClassroom-Projet-8-Participez-la-conception-d-une-voiture-autonome/'
+
 
 #app = Flask(__name__)
 app = Flask('Prediction des sentiments sur twitter',template_folder = template_folder)
