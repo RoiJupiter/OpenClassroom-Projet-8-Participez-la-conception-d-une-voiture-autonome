@@ -2,11 +2,14 @@ from flask import Flask, render_template, send_from_directory
 import os
 
 from functions_utils import predict
-app = Flask(__name__)
 
-current_folder = "/home/Jupiter/OpenClassroom-Projet-8-Participez-la-conception-d-une-voiture-autonome/templates"
+template_folder = "/home/Jupiter/OpenClassroom-Projet-8-Participez-la-conception-d-une-voiture-autonome/templates"
+#template_folder = "D:/anaconda3\envs\env1/notebooks\OP Notebooks\p8\Github/templates"
 
-app = Flask('Prediction des sentiments sur twitter',template_folder = current_folder)
+#current_folder = "D:/anaconda3\envs\env1/notebooks\OP Notebooks\p8\Github/"
+
+#app = Flask(__name__)
+app = Flask('Prediction des sentiments sur twitter',template_folder = template_folder)
 
 # Route pour la page d'accueil
 @app.route('/')

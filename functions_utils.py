@@ -4,6 +4,11 @@ import tensorflow as tf
 from matplotlib import colors
 import numpy as np
 
+model_path = "/home/Jupiter/OpenClassroom-Projet-8-Participez-la-conception-d-une-voiture-autonome/model_fcn8_no_augm.h5"
+#model_path = "D:/anaconda3\envs\env1/notebooks\OP Notebooks\p8\Github/model_fcn8_no_augm.h5"
+
+
+
 # Fonction pour normaliser une image d'entrée dans la plage [-1, 1]
 def normalize_input_img(img):
     '''
@@ -35,7 +40,7 @@ cats = {
 
 # Fonction pour effectuer les prédictions
 def predict(image_path):
-    model = keras.models.load_model('model_fcn8_no_augm.h5', compile = False)
+    model = keras.models.load_model(model_path, compile = False)
     model.compile(loss='categorical_crossentropy',
               metrics=['accuracy'])
     
