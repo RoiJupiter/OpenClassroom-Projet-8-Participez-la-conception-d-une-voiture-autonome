@@ -1,5 +1,6 @@
 from flask import Flask, render_template, send_from_directory
 import os
+import sys
 
 from functions_utils import predict
 
@@ -21,7 +22,7 @@ def home():
 def process_image():
     image_list = []
 
-    print("Alioth "+os.getcwd(), flush=True)
+    print("Alioth "+os.getcwd(), flush=True, file=sys.stderr)
 
     # Chemin vers le dossier "static/images"
     images_folder = os.path.join(os.getcwd(), 'static/images')
