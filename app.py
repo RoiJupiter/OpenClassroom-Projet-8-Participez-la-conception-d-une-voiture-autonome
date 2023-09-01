@@ -86,7 +86,7 @@ def show_selected_image(filename):
     # Sauvegarder l'image de masque générée
     prediction.save(generated_mask_path)
     generated_mask_path = os.path.join(current_path + variable_z +  'generated_mask/', 'generated_mask.png')
-    print("Alioth " + generated_mask_path, flush=True, file=sys.stderr)
+    print("Alioth2 " + os.getcwd(), flush=True, file=sys.stderr)
 
     # Rend la page "show_selected_image.html" en passant 
     # #les chemins des images sélectionnée et du masque
