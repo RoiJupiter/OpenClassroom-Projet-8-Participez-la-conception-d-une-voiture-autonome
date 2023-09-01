@@ -8,7 +8,7 @@ import io
 import base64
 
 
-
+'''
 #variable local
 template_folder = "D:/anaconda3\envs\env1/notebooks\OP Notebooks\p8\Github/templates"
 path = os.getcwd()
@@ -22,7 +22,7 @@ template_folder = "/home/Jupiter/OpenClassroom-Projet-8-Participez-la-conception
 path = '/home/Jupiter/OpenClassroom-Projet-8-Participez-la-conception-d-une-voiture-autonome/'
 current_path = '/home/Jupiter/OpenClassroom-Projet-8-Participez-la-conception-d-une-voiture-autonome/'
 variable_z = "static/"
-'''
+
 #app = Flask(__name__)
 app = Flask('Prediction des sentiments sur twitter',template_folder = template_folder)
 
