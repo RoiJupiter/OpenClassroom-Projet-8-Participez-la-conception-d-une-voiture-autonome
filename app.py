@@ -6,18 +6,21 @@ from functions_utils import predict
 
 print("Alioth "+os.getcwd(), flush=True, file=sys.stderr)
 
-
+'''
 #variable local
 template_folder = "D:/anaconda3\envs\env1/notebooks\OP Notebooks\p8\Github/templates"
 path = os.getcwd()
 current_path =''
+variable_z = ""
 
+'''
 
-'''#variable pythonanywhere
+#variable pythonanywhere
 template_folder = "/home/Jupiter/OpenClassroom-Projet-8-Participez-la-conception-d-une-voiture-autonome/templates"
 path = '/home/Jupiter/OpenClassroom-Projet-8-Participez-la-conception-d-une-voiture-autonome/'
 current_path = '/home/Jupiter/OpenClassroom-Projet-8-Participez-la-conception-d-une-voiture-autonome/'
-'''
+variable_z = "static/"
+
 
 #app = Flask(__name__)
 app = Flask('Prediction des sentiments sur twitter',template_folder = template_folder)
@@ -82,7 +85,7 @@ def show_selected_image(filename):
     
     # Sauvegarder l'image de masque générée
     prediction.save(current_path + generated_mask_path)
-    generated_mask_path = os.path.join(current_path + 'generated_mask/', 'generated_mask.png')
+    generated_mask_path = os.path.join(current_path + variable_z +  'generated_mask/', 'generated_mask.png')
 
     # Rend la page "show_selected_image.html" en passant 
     # #les chemins des images sélectionnée et du masque
