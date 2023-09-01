@@ -6,8 +6,8 @@ import numpy as np
 
 import os
 
-model_path = "/home/Jupiter/OpenClassroom-Projet-8-Participez-la-conception-d-une-voiture-autonome/mon_model.h5"
-#model_path = "D:/anaconda3\envs\env1/notebooks\OP Notebooks\p8\Github/mon_model.h5"
+#model_path = "/home/Jupiter/OpenClassroom-Projet-8-Participez-la-conception-d-une-voiture-autonome/mon_model.h5"
+model_path = "D:/anaconda3\envs\env1/notebooks\OP Notebooks\p8\Github/mon_model.h5"
 
 assert os.path.exists(model_path), f"Le fichier de modèle '{model_path}' n'existe pas."
 

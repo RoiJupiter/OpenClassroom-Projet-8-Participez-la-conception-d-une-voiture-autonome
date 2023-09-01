@@ -4,9 +4,10 @@ import sys
 
 from functions_utils import predict
 
-print("Alioth "+os.getcwd(), flush=True, file=sys.stderr)
+import io
+import base64
 
-'''
+
 
 #variable local
 template_folder = "D:/anaconda3\envs\env1/notebooks\OP Notebooks\p8\Github/templates"
@@ -21,7 +22,7 @@ template_folder = "/home/Jupiter/OpenClassroom-Projet-8-Participez-la-conception
 path = '/home/Jupiter/OpenClassroom-Projet-8-Participez-la-conception-d-une-voiture-autonome/'
 current_path = '/home/Jupiter/OpenClassroom-Projet-8-Participez-la-conception-d-une-voiture-autonome/'
 variable_z = "static/"
-
+'''
 #app = Flask(__name__)
 app = Flask('Prediction des sentiments sur twitter',template_folder = template_folder)
 
@@ -80,6 +81,11 @@ def show_selected_image(filename):
     # Effectuer des prédictions sur l'image sélectionnée
     prediction = predict(image_to_predict)
 
+    # Convertir l'image PIL en une chaîne d'octets encodée en base64
+    img_buffer = io.BytesIO()
+    prediction.save(img_buffer, format="PNG")
+    img_str = base64.b64encode(img_buffer.getvalue()).decode('utf-8')
+
     # Chemin de sauvegarde pour l'image de masque générée
     generated_mask_path = os.path.join(current_path + 'static/generated_mask/', 'generated_mask.png')
     
@@ -93,7 +99,7 @@ def show_selected_image(filename):
     return render_template('show_selected_image.html', 
                            selected_image_path=selected_image_path, 
                            mask_image_path=mask_image_path, 
-                           generated_mask_path=generated_mask_path)
+                           generated_mask_path=img_str)
 
 
 # Exécute l'application si le script est exécuté directement

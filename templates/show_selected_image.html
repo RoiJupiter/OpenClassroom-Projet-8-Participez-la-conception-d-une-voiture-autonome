@@ -49,7 +49,7 @@
             <!-- Afficher l'image générée à partir du masque segmenté -->
             <img src="{{ url_for('static', filename=generated_mask_path) }}" alt="Generated Masks" class="image">
             <!-- Afficher le nom de l'image générée -->
-            <p>{{ generated_mask_path.split('/')[-1] }}</p>
+            <img src="data:image/png;base64,{{ generated_mask_path }}" alt="Votre Image">
         </div>
     </div>
 </body>
